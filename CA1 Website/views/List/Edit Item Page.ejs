@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>Edit Game</title>
+    <style>
+        body {
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+                        url("/Images/ListPage.gif") no-repeat center center/cover;
+            min-height: 100vh;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            backdrop-filter: blur(5px);
+            z-index: -1;
+        }
+    </style>
+</head>
+<body>
+    <%- include('../partials/header') %>
+
+    <div class="container mt-4 text-white" style="max-width: 600px;">
+        <h2 class="fw-bold mb-4">Edit Game</h2>
+
+        <form action="/list/edit/<%= game.id %>" method="POST">
+
+            <div class="mb-3">
+                <label for="title">Game Name:</label>
+                <input type="text" class="form-control" id="title" name="title" value="<%= game.title %>">
+            </div>
+
+            <div class="mb-3">
+                <label for="platform">Platform:</label>
+                <select class="form-select" id="platform" name="platform">
+                    <option value="">Select Platform</option>
+                    <option value="PC"              <%= game.platform === 'PC'              ? 'selected' : '' %>>PC</option>
+                    <option value="PS5"             <%= game.platform === 'PS5'             ? 'selected' : '' %>>PS5</option>
+                    <option value="PS4"             <%= game.platform === 'PS4'             ? 'selected' : '' %>>PS4</option>
+                    <option value="Xbox"            <%= game.platform === 'Xbox'            ? 'selected' : '' %>>Xbox</option>
+                    <option value="Nintendo Switch" <%= game.platform === 'Nintendo Switch' ? 'selected' : '' %>>Nintendo Switch</option>
+                    <option value="Mobile"          <%= game.platform === 'Mobile'          ? 'selected' : '' %>>Mobile</option>
+                </select>
+            </div>
+
+            <div class="mb-3">
+                <label for="status">Status:</label>
+                <select class="form-select" id="status" name="status">
+                    <option value="">Select Status</option>
+                    <option value="Playing"      <%= game.status === 'Playing'      ? 'selected' : '' %>>Playing</option>
+                    <option value="Completed"    <%= game.status === 'Completed'    ? 'selected' : '' %>>Completed</option>
+                    <option value="On Hold"      <%= game.status === 'On Hold'      ? 'selected' : '' %>>On Hold</option>
+                    <option value="Dropped"      <%= game.status === 'Dropped'      ? 'selected' : '' %>>Dropped</option>
+                    <option value="Plan to Play" <%= game.status === 'Plan to Play' ? 'selected' : '' %>>Plan to Play</option>
+                </select>
+            </div>
+
+            <div class="mb-3">
+                <label for="genre">Genre:</label>
+                <input type="text" class="form-control" id="genre" name="genre" value="<%= game.genre %>">
+            </div>
+
+            <div class="mb-3">
+                <label for="notes">Notes:</label>
+                <textarea class="form-control" id="notes" name="notes" rows="3"><%= game.notes || '' %></textarea>
+            </div>
+
+            <div class="mb-3">
+                <label for="rating">Rating:</label>
+                <select class="form-select" id="rating" name="rating">
+                    <option value="1" <%= game.rating == 1 ? 'selected' : '' %>>⭐★★★★ 1</option>
+                    <option value="2" <%= game.rating == 2 ? 'selected' : '' %>>⭐⭐★★★ 2</option>
+                    <option value="3" <%= game.rating == 3 ? 'selected' : '' %>>⭐⭐⭐★★ 3</option>
+                    <option value="4" <%= game.rating == 4 ? 'selected' : '' %>>⭐⭐⭐⭐★ 4</option>
+                    <option value="5" <%= game.rating == 5 ? 'selected' : '' %>>⭐⭐⭐⭐⭐ 5</option>
+                </select>
+            </div>
+
+            <div class="d-flex gap-2">
+                <button type="submit" class="btn btn-success">Save Changes</button>
+                <a href="/ListPage" class="btn btn-secondary">Cancel</a>
+            </div>
+
+        </form>
+    </div>
+</body>
+</html>
