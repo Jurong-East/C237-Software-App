@@ -1,0 +1,39 @@
+<html>
+<head>
+    <title>Reynald Travel Packing List</title>
+</head>
+<body>
+    <h1>Reynald Travel Packing List</h1>
+    <table border="1">
+        <tr>
+            <th>Clothes</th>
+            <th>Toiletries</th>
+        </tr>
+        <tr>
+            <td>
+                <% for (let i = 0; i < clothesList.length; i++) { %>
+                    <%= (i+1) %>. <%= clothesList[i] %><br>
+                <% } %>
+            </td>
+            <td>
+                <% for (let i = 0; i < toiletriesList.length; i++) { %>
+                    <%= (i+1) %>. <%= toiletriesList[i] %><br>
+                <% } %>
+            </td>
+        </tr>
+    </table>
+</body>
+
+<h2>Add New Item</h2>
+<form action="/add" method="POST">
+    <label>Item: <input type="text" name="item" required></label><br><br>
+    <label>Category:
+        <select name="category">
+            <option value="clothes">Clothes</option>
+            <option value="toiletries">Toiletries</option>
+        </select>
+    </label><br><br>
+    <button type="submit">Add to List</button>
+</form>
+
+</html>

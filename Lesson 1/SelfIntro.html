@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Quek Reynald – Self Introduction</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .page {
+      max-width: 680px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    .profile-card {
+      background: #ffffff;
+      border-radius: 16px;
+      padding: 2rem;
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+    }
+
+    .avatar {
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      background: #dbeafe;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      font-weight: 600;
+      color: #1d4ed8;
+      flex-shrink: 0;
+    }
+
+    .profile-info .subtitle {
+      font-size: 0.95rem;
+      color: #6b7280;
+      margin-bottom: 10px;
+    }
+
+    /* LinkedIn button: override styles.css link hover so it stays white */
+    .linkedin-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #0a66c2;
+      color: #ffffff !important;
+      text-decoration: none !important;
+      font-size: 0.85rem;
+      font-weight: 600;
+      padding: 6px 14px;
+      border-radius: 20px;
+      transition: background 0.2s;
+    }
+    .linkedin-btn:hover {
+      background: #084e96;
+      color: #ffffff !important;
+      text-decoration: none !important;
+    }
+    .linkedin-btn svg { width: 14px; height: 14px; fill: #fff; }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.25rem;
+    }
+
+    .card {
+      background: #ffffff;
+      border-radius: 16px;
+      padding: 1.5rem;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+    }
+
+    .card h2 {
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #9ca3af;
+      margin-bottom: 1rem;
+    }
+
+    .tag-list { display: flex; flex-wrap: wrap; gap: 8px; }
+
+    .tag { font-size: 0.875rem; padding: 5px 12px; border-radius: 20px; font-weight: 500; }
+    .tag-hobby { background: #ede9fe; color: #5b21b6; }
+
+    .about-card {
+      background: #ffffff;
+      border-radius: 16px;
+      padding: 1.5rem;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+    }
+    .about-card h2 {
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #9ca3af;
+      margin-bottom: 0.75rem;
+    }
+    .about-card p { font-size: 0.95rem; line-height: 1.7; color: #374151; }
+
+    footer { text-align: center; font-size: 0.8rem; color: #9ca3af; padding-bottom: 0.5rem; }
+    .link-to-form { text-align: center; font-size: 0.95rem; }
+
+    @media (max-width: 500px) {
+      .profile-card { flex-direction: column; text-align: center; }
+      .grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+
+    <!-- Profile header -->
+    <div class="profile-card">
+      <img class="avatar" src="your-photo.jpg" alt="Quek Reynald" />
+      <div class="profile-info">
+        <h1>Quek Reynald</h1>
+        <p class="subtitle">Diploma in Information Technology &nbsp;·&nbsp; Year 2</p>
+        <a class="linkedin-btn" href="https://www.linkedin.com/in/reynald-quek/" target="_blank">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45C23.21 24 24 23.23 24 22.27V1.73C24 .77 23.21 0 22.22 0z"/>
+          </svg>
+          Connect on LinkedIn
+        </a>
+      </div>
+    </div>
+
+    <!-- Hobbies + Modules -->
+    <div class="grid">
+      <div class="card">
+        <h2>Hobbies &amp; interests</h2>
+        <div class="tag-list">
+          <span class="tag tag-hobby">Photography</span>
+          <span class="tag tag-hobby">Gaming</span>
+          <span class="tag tag-hobby">Hiking</span>
+        </div>
+      </div>
+      <div class="card">
+        <h2>Modules studied</h2>
+        <!-- .module-list applies the light grey background from styles.css -->
+        <ul class="module-list">
+          <li>Web Development</li>
+          <li>Database Management</li>
+          <li>Networking Fundamentals</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- About -->
+    <div class="about-card">
+      <h2>About me</h2>
+      <p>
+        Hi! I'm currently studying Information Technology and enjoy building web projects and exploring new technologies.
+        Outside of school, I love photography, gaming, and getting outdoors for a hike.
+        Feel free to connect with me on LinkedIn!
+      </p>
+    </div>
+
+    <footer>Made with HTML &amp; CSS &nbsp;·&nbsp; Quek Reynald &copy; 2026</footer>
+
+    <p class="link-to-form">To provide more info please <a href="form.html">click here</a></p>
+
+  </div>
+</body>
+</html>

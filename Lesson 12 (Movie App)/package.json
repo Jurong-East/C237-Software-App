@@ -1,0 +1,13 @@
+{
+  "name": "movie-watchlist-tracker",
+  "version": "1.0.0",
+  "description": "A simple movie watchlist tracker built with Node.js, Express and EJS",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "ejs": "^3.1.10",
+    "express": "^4.22.2"
+  }
+}

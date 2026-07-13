@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <title>Movie Watchlist Tracker</title>
+    <style>
+        body {
+            background-color: #141414;
+            min-height: 100vh;
+        }
+
+        .hero-section {
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .hero-title {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 72px;
+            color: #e50914;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.8);
+        }
+
+        .hero-subtitle {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 28px;
+            color: #ffffff;
+        }
+
+        .btn-start {
+            background-color: #e50914;
+            color: white;
+            font-size: 18px;
+            padding: 12px 32px;
+            border: none;
+            border-radius: 6px;
+            margin-top: 20px;
+            text-decoration: none;
+        }
+
+        .btn-start:hover {
+            background-color: #b20710;
+            color: white;
+        }
+
+        .feature-card {
+            background-color: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 12px;
+            padding: 24px;
+            text-align: center;
+            color: white;
+        }
+
+        .feature-icon {
+            font-size: 40px;
+            margin-bottom: 12px;
+        }
+    </style>
+</head>
+<body>
+    <%- include('../partials/header') %>
+
+    <div class="hero-section">
+        <div>
+            <h1 class="hero-title">🎬 Movie Watchlist Tracker</h1>
+            <p class="hero-subtitle">Track every movie you've watched, want to watch, or are watching right now.</p>
+            <br>
+            <a href="/MovieList" class="btn-start">View My Watchlist →</a>
+
+            <div class="container mt-5">
+                <div class="row g-4">
+                    <div class="col-md-4">
+                        <div class="feature-card">
+                            <div class="feature-icon">➕</div>
+                            <h5>Add Movies</h5>
+                            <p style="color: #aaa;">Add any movie to your personal watchlist with genre, status and rating.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="feature-card">
+                            <div class="feature-icon">✏️</div>
+                            <h5>Edit & Update</h5>
+                            <p style="color: #aaa;">Update your movie status and rating as you watch more films.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="feature-card">
+                            <div class="feature-icon">⭐</div>
+                            <h5>Rate Movies</h5>
+                            <p style="color: #aaa;">Give each movie a star rating out of 5 after you watch it.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
