@@ -18,9 +18,9 @@ const storage = multer.diskStorage({
 const upload = multer({ storage: storage });
 
 const connection = mysql.createConnection({
-    host: 'localhost',
+    host: '127.0.0.4',
     user: 'root',
-    password: '',
+    password: 'T0105061z',
     database: 'c237_supermarketdb'
   });
 
@@ -109,15 +109,18 @@ app.post('/register', validateRegistration, (req, res) => {
 
     const { username, email, password, address, contact, role } = req.body;
 
-    const sql = 'INSERT INTO users (username, email, password, address, contact, role) VALUES (?, ?, SHA1(?), ?, ?, ?)';
-    connection.query(sql, [username, email, password, address, contact, role], (err, result) => {
-        if (err) {
-            throw err;
+    const sql = `INSERT INTO users (username, email, password, address, contact, role) VALUES (?, ?, SHA2(?, 256), ?, ?, ?)`;
+
+    connection.query(sql,
+        [username, email, password, address, contact, role],
+        (err, result) => {
+            if (err) throw err;
+
+            console.log(result);
+            req.flash('success', 'Registration successful! Please log in.');
+            res.redirect('/login');
         }
-        console.log(result);
-        req.flash('success', 'Registration successful! Please log in.');
-        res.redirect('/login');
-    });
+    );
 });
 
 app.get('/login', (req, res) => {
@@ -133,7 +136,7 @@ app.post('/login', (req, res) => {
         return res.redirect('/login');
     }
 
-    const sql = 'SELECT * FROM users WHERE email = ? AND password = SHA1(?)';
+    const sql = 'SELECT * FROM users WHERE email = ? AND password = SHA2(?, 256)';
     connection.query(sql, [email, password], (err, results) => {
         if (err) {
             throw err;
